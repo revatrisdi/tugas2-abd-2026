@@ -29,7 +29,7 @@ Volume pemberitaan digital di media massa nasional Indonesia tumbuh sangat masif
 | Parameter | Keterangan |
 |-----------|------------|
 | **Nama Dataset** | Indonesian News Datasets (`iqballx/indonesian_news_datasets`) |
-| **Sumber Resmi** | https://huggingface.co/datasets/iqballx/indonesian_news_datasets/blob/main/data.csv |
+| **Sumber Resmi** | https://huggingface.co/datasets/iqballx/indonesian_news_datasets |
 | **Format Awal** | CSV (`data.csv`) |
 | **Ukuran Data** | 1,99 GB (memenuhi syarat skala besar >500 MB) |
 | **Dimensi Waktu / Temporal** | Multi-tahun (mencakup data historis publikasi berita hingga Maret 2023 dengan stempel waktu presisi per detik pada kolom `date`, `created_at`, dan `updated_at`) |
