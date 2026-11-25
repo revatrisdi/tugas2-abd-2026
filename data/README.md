@@ -1,37 +1,45 @@
-# Panduan Dataset — Tugas 2 (Data Product)
+# Dokumentasi Dataset
 
-Folder ini digunakan untuk menempatkan dataset yang dipakai dalam dashboard analitik.
+## Informasi Umum
 
-> **PENTING:** Jangan pernah melakukan `git commit` atau `git push` file dataset besar (>100MB) langsung ke repository GitHub! File data besar harus diabaikan melalui `.gitignore`.
+- **Nama Dataset:** Indonesian News Datasets
+- **Sumber Publik:** [HuggingFace — iqballx/indonesian_news_datasets (`data.csv`)](https://huggingface.co/datasets/iqballx/indonesian_news_datasets/blob/main/data.csv)
+- **Ukuran File:** 1,99 GB
+- **Format Awal:** CSV (`data.csv`)
 
----
+## Skema Kolom Dataset
 
-## Informasi Dataset Kelompok
+| Nama Kolom   | Tipe Data   | Keterangan                                                                        |
+| :----------- | :---------- | :-------------------------------------------------------------------------------- |
+| `id`         | `INT64`     | Identitas unik setiap artikel berita                                              |
+| `source`     | `VARCHAR`   | Nama portal media penerbit berita (contoh: `tempo`, dll.)                         |
+| `title`      | `VARCHAR`   | Judul artikel berita                                                              |
+| `image`      | `VARCHAR`   | Tautan URL gambar utama artikel                                                   |
+| `url`        | `VARCHAR`   | Tautan sumber artikel asli (digunakan untuk ekstraksi kanal/rubrik)               |
+| `content`    | `VARCHAR`   | Teks lengkap isi berita                                                           |
+| `date`       | `TIMESTAMP` | Tanggal dan waktu publikasi artikel                                               |
+| `embedding`  | `VARCHAR`   | Representasi vektor embedding teks _(dikecualikan saat preprocessing ke Parquet)_ |
+| `created_at` | `TIMESTAMP` | Waktu pencatatan data pertama kali                                                |
+| `updated_at` | `TIMESTAMP` | Waktu pembaruan terakhir data                                                     |
+| `summary`    | `VARCHAR`   | Ringkasan artikel berita                                                          |
 
-- **Nama Dataset:** [Isi nama dataset]
-- **Sumber Data:** [Tautan sumber resmi / URL portal]
-- **Ukuran File Mentah:** [Ukuran dalam MB / GB]
-- **Jumlah Baris:** [Jumlah baris data, minimal >500 MB atau >1 Juta Baris]
-- **Format File:** [CSV / Parquet]
+## Cara Mengunduh & Preprocessing Dataset
 
----
-
-## Instruksi Pengunduhan & Penyiapan Data
-
-Tuliskan perintah atau script untuk mengunduh dataset secara otomatis:
+File `data.csv` (1,99 GB) dan file hasil konversi `.parquet` tidak di-commit ke GitHub (diabaikan melalui `.gitignore`). Gunakan perintah berikut untuk mengunduh langsung file `data.csv` dan mengonversinya ke Parquet bersih menggunakan DuckDB:
 
 ```bash
-# Contoh pengunduhan menggunakan curl / wget:
-# curl -L -o data/dataset_mentah.parquet https://url-sumber-data.com/data.parquet
+# 1. Unduh file data.csv langsung dari HuggingFace
+curl -L "[https://huggingface.co/datasets/iqballx/indonesian_news_datasets/resolve/main/data.csv](https://huggingface.co/datasets/iqballx/indonesian_news_datasets/resolve/main/data.csv)" -o data/data.csv
 ```
 
----
+```python
+# 2. Konversi CSV ke Parquet bersih tanpa kolom embedding agar hemat RAM
+import duckdb
 
-## Skema Struktur Kolom Data
-
-| Nama Kolom | Tipe Data | Deskripsi Makna Bisnis |
-|------------|:---------:|------------------------|
-| `timestamp` | Datetime | Waktu pencatatan observasi |
-| `wilayah` | Utf8 | Nama provinsi / kota / stasiun |
-| `kategori` | Utf8 | Pengelompokan jenis data |
-| `nilai_metrik` | Float64 | Angka pengukuran utama |
+duckdb.sql("""
+    COPY (
+        SELECT id, source, title, url, content, date, created_at, updated_at, summary
+        FROM read_csv_auto('data/data.csv', ignore_errors=true)
+    ) TO 'data/indonesian_news_clean.parquet' (FORMAT PARQUET, COMPRESSION ZSTD);
+""")
+```
