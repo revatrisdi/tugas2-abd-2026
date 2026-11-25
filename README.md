@@ -1,5 +1,5 @@
 ---
-title: Dashboard Analitik Big Data
+title: Dashboard Analitik Tren Pemberitaan Indonesia
 emoji: 📊
 colorFrom: blue
 colorTo: green
@@ -12,69 +12,30 @@ pinned: false
 
 # Tugas 2: Data Product — Dashboard Analitik Interaktif
 
-Template repositori tim untuk **Tugas 2** mata kuliah **Analisis Big Data** (S1 Teknik Informatika / Sistem Informasi).
+Repositori tim **Reva Trisdianto (202310370311323) & Nabila Aurellya Putri (202310370311303)** untuk **Tugas 2** mata kuliah **Analisis Big Data** (S1 Teknik Informatika).
 
 ---
 
 ## Informasi Umum
 
-| Parameter | Keterangan |
-|-----------|------------|
-| **Tipe Tugas** | Kelompok (2–3 Mahasiswa) |
-| **Diumumkan** | Pertemuan 8 (Phase 1); repositori dibagikan Pertemuan 9 |
+| Parameter                | Keterangan                                                                                                        |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **Tipe Tugas**           | Kelompok (2 Mahasiswa)                                                                                            |
+| **Diumumkan**            | Pertemuan 8 (Phase 1); repositori dibagikan Pertemuan 9                                                           |
 | **Platform Pengumpulan** | GitHub (fork dari [`UMM-GURU/tugas2-abd-2026`](https://github.com/UMM-GURU/tugas2-abd-2026)) & HuggingFace Spaces |
-| **Bobot Penilaian** | 35% dari Nilai Akhir Mata Kuliah |
-| **Deadline Final** | Minggu 14 |
+| **Bobot Penilaian**      | 35% dari Nilai Akhir Mata Kuliah                                                                                  |
+| **Deadline Final**       | Minggu 14                                                                                                         |
 
 ---
 
 ## Tahapan Milestone Pengerjaan (Incremental Milestones)
 
-| Fase | Diberikan | Target Check-in | Deliverable Utama |
-|------|:---------:|:---------------:|-------------------|
-| **Phase 1: Pitch dan Architecture** | Pertemuan 8 | Pertemuan 10 | Pembentukan tim, fork repositori dan pengisian `identitas.md`, pengajuan proposal topik dan skema arsitektur data di `docs/architecture.md`. |
-| **Phase 2: Data Pipeline dan Query Engine** | Pertemuan 10 | Pertemuan 11 | Integrasi DuckDB/Polars backend, skrip ekstraksi data dan caching efisien siap dihubungkan ke Streamlit. |
-| **Phase 3: Streamlit UI dan Staging Space** | Pertemuan 11 | Pertemuan 12 | Prototype dashboard live di HuggingFace Spaces (staging), pengujian interaktivitas widget dan chart Plotly. |
-| **Final Release dan Presentasi** | Pertemuan 12 | Minggu 14 | Final deployment production, video demo 3–5 menit, penyelesaian laporan `README.md`. Presentasi tim bergiliran mulai Minggu 12/13, selesai paling lambat Minggu 14. |
-
----
-
-## Persiapan GitHub
-
-### 1. Fork Repositori Tugas (oleh satu anggota)
-
-Salah satu anggota (ketua kelompok) melakukan fork repositori berikut ke akun GitHub-nya:
-
-https://github.com/UMM-GURU/tugas2-abd-2026
-
-1. Login ke GitHub dan buka repositori di atas.
-2. Klik tombol **Fork** di pojok kanan atas.
-3. Hasil fork akan berada di `https://github.com/USERNAME-KETUA/tugas2-abd-2026`.
-
-### 2. Tambahkan Anggota Lain sebagai Collaborator
-
-Pada repositori hasil fork, buka **Settings → Collaborators → Add people**, lalu undang akun GitHub anggota lain. Setiap anggota wajib menerima undangan tersebut agar dapat melakukan push.
-
-### 3. Clone Repositori
-
-Setiap anggota melakukan clone repositori hasil fork milik ketua:
-
-```bash
-git clone https://github.com/USERNAME-KETUA/tugas2-abd-2026.git
-cd tugas2-abd-2026
-```
-
-### 4. Isi `identitas.md`
-
-Isi nama, NIM, dan akun GitHub seluruh anggota pada file [`identitas.md`](identitas.md), lalu commit dan push sebagai commit pertama kelompok:
-
-```bash
-git add identitas.md
-git commit -m "Isi identitas kelompok"
-git push origin main
-```
-
-Kontribusi setiap anggota dinilai dari riwayat commit, jadi pastikan akun GitHub yang dicantumkan sama dengan akun yang digunakan untuk commit.
+| Fase                                        |  Diberikan   | Target Check-in | Deliverable Utama                                                                                                                                                   |
+| ------------------------------------------- | :----------: | :-------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Phase 1: Pitch dan Architecture**         | Pertemuan 8  |  Pertemuan 10   | Pembentukan tim, fork repositori dan pengisian `identitas.md`, pengajuan proposal topik dan skema arsitektur data di `docs/architecture.md`.                        |
+| **Phase 2: Data Pipeline dan Query Engine** | Pertemuan 10 |  Pertemuan 11   | Integrasi DuckDB/Polars backend, skrip ekstraksi data dan caching efisien siap dihubungkan ke Streamlit.                                                            |
+| **Phase 3: Streamlit UI dan Staging Space** | Pertemuan 11 |  Pertemuan 12   | Prototype dashboard live di HuggingFace Spaces (staging), pengujian interaktivitas widget dan chart Plotly.                                                         |
+| **Final Release dan Presentasi**            | Pertemuan 12 |    Minggu 14    | Final deployment production, video demo 3–5 menit, penyelesaian laporan `README.md`. Presentasi tim bergiliran mulai Minggu 12/13, selesai paling lambat Minggu 14. |
 
 ---
 
@@ -82,31 +43,33 @@ Kontribusi setiap anggota dinilai dari riwayat commit, jadi pastikan akun GitHub
 
 Identitas lengkap (nama, NIM, akun GitHub) dicantumkan di [`identitas.md`](identitas.md). Tabel berikut menjelaskan pembagian peran:
 
-| No | Nama | Peran / Kontribusi Utama |
-|:--:|------|--------------------------|
-| 1 | [Nama Mahasiswa 1] | Lead Architect / Data Pipeline |
-| 2 | [Nama Mahasiswa 2] | Backend Query / DuckDB Engine |
-| 3 | [Nama Mahasiswa 3] | Frontend Streamlit / Visualisasi |
+| No  | Nama                  | Peran / Kontribusi Utama                                                                                     |
+| :-: | --------------------- | ------------------------------------------------------------------------------------------------------------ |
+|  1  | Reva Trisdianto       | Lead Architect, Data Pipeline (Polars & Konversi Parquet), Integrasi Dockerfile, & Deployment HF Spaces      |
+|  2  | Nabila Aurellya Putri | Backend Query (DuckDB Engine), Optimasi Caching (`@st.cache_data`), Frontend Streamlit, & Visualisasi Plotly |
 
 ---
 
 ## Tautan Produk Data
 
-- **Live Dashboard (HuggingFace Spaces):** `https://huggingface.co/spaces/[username_hf]/[nama_app]`
-- **Video Demo (3–5 Menit):** `https://youtu.be/[video_id]` atau Google Drive Link
+- **Live Dashboard (HuggingFace Spaces):** `https://huggingface.co/spaces/[username_hf]/[nama_app]` _(Akan diperbarui pada Phase 3)_
+- **Video Demo (3–5 Menit):** `https://youtu.be/[video_id]` _(Akan diperbarui pada Final Release)_
 
 ---
 
 ## Prasyarat dan Menjalankan Dashboard Secara Lokal
 
 ### 1. Menjalankan Langsung dengan Python (Lokal)
+
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
 Akses dashboard di browser melalui: `http://localhost:8501`
 
 ### 2. Menjalankan di Lingkungan Docker
+
 ```bash
 docker build -t bigdata-dashboard .
 docker run -p 8501:8501 bigdata-dashboard
@@ -138,8 +101,7 @@ docker run -p 8501:8501 bigdata-dashboard
 
 ## Pernyataan Penggunaan AI (AI Disclosure Statement)
 
-Wajib diisi oleh seluruh kelompok:
-- **Apakah menggunakan AI (ChatGPT / Claude / GitHub Copilot / LLM lain)?** [Ya / Tidak]
-- **Jika Ya, sebutkan alat yang digunakan:** [Sebutkan alat]
-- **Komponen mana yang dibantu AI:** [Misal: saran kueri SQL window function, perbaikan CSS layout]
+- **Apakah menggunakan AI (ChatGPT / Claude / GitHub Copilot / LLM lain)?** Ya
+- **Jika Ya, sebutkan alat yang digunakan:** Gemini, GitHub Copilot
+- **Komponen mana yang dibantu AI:** Penyusunan struktur dokumentasi arsitektur, optimasi kueri konversi CSV ke Parquet menggunakan DuckDB, dan penataan format Markdown.
 - **Komitmen Tim:** Seluruh anggota tim memahami sepenuhnya kode yang diserahkan dan bertanggung jawab penuh atas integritas serta fungsionalitas aplikasi saat evaluasi/presentasi.
